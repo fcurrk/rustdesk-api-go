@@ -143,13 +143,16 @@ jobs:
         with:
           files: |
             ${{ matrix.job.goos}}-${{ matrix.job.platform }}.${{matrix.job.file_ext}}
+          tag: ${{ github.ref }}
+          body: "fix bug."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Generate Changelog
-        run: npx changelogithub # or changelogithub@0.12 if ensure the stable result
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+# 不生成log到Release
+#      - name: Generate Changelog
+#        run: npx changelogithub # or changelogithub@0.12 if ensure the stable result
+#        env:
+#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   deb-package:
     name: debian package - ${{ matrix.job.platform }}
