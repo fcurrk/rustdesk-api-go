@@ -7,7 +7,7 @@ services:
         COUNTRY: CN
         FREONTEND_GIT_REPO: https://github.com/fcurrk/rustdesk-api-web.git
         FRONTEND_GIT_BRANCH: master
-    # image: fcurrk/rustdesk-api-go
+    # image: fcurrk/rustdesk-api
     container_name: rustdesk-api
     environment:
       - TZ=Asia/Shanghai
