@@ -143,7 +143,7 @@ jobs:
         with:
           files: |
             ${{ matrix.job.goos}}-${{ matrix.job.platform }}.${{matrix.job.file_ext}}
-          tag: ${{ github.ref }}
+          tag_name: ${{ github.ref }}
           body: "Synchronize source updates."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
