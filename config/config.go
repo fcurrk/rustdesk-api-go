@@ -23,6 +23,7 @@ type App struct {
 }
 type Admin struct {
 	Title     string `mapstructure:"title"`
+	Version     string `mapstructure:"version"`
 	Hello     string `mapstructure:"hello"`
 	HelloFile string `mapstructure:"hello-file"`
 }
