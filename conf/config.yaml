@@ -12,7 +12,7 @@ app:
 
 admin:
   title: "RustDesk Api Admin"
-  version: "v2.16.20.1" #API版本
+  version: "v2.16.21.0" #API版本
   hello-file: "./conf/admin/hello.html"  #优先使用file
   hello: ""
 gin:
