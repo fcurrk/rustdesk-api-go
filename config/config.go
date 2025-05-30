@@ -29,6 +29,8 @@ type Admin struct {
 	Version   string `mapstructure:"version"`
 	Hello     string `mapstructure:"hello"`
 	HelloFile string `mapstructure:"hello-file"`
+	IdServerPort    int    `mapstructure:"id-server-port"`
+	RelayServerPort int    `mapstructure:"relay-server-port"`
 }
 type Config struct {
 	Lang     string `mapstructure:"lang"`
@@ -45,6 +47,15 @@ type Config struct {
 	Rustdesk Rustdesk
 	Proxy    Proxy
 	Ldap     Ldap
+}
+
+func (a *Admin) Init() {
+	if a.IdServerPort == 0 {
+		a.IdServerPort = DefaultIdServerPort
+	}
+	if a.RelayServerPort == 0 {
+		a.RelayServerPort = DefaultRelayServerPort
+	}
 }
 
 // Init 初始化配置
@@ -81,7 +92,7 @@ func Init(rowVal *Config, path string) *viper.Viper {
 		panic(fmt.Errorf("Fatal error config: %s \n", err))
 	}
 	rowVal.Rustdesk.LoadKeyFile()
-	rowVal.Rustdesk.ParsePort()
+	rowVal.Admin.Init()
 	return v
 }
 
