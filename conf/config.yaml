@@ -12,6 +12,7 @@ app:
 
 admin:
   title: "RustDesk API Admin"
+  version: "v2.16.23.1" #API版本
   hello-file: "./conf/admin/hello.html"  #优先使用file
   hello: ""
   # ID Server and Relay Server ports https://github.com/lejianwen/rustdesk-api/issues/257
